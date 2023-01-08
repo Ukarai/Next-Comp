@@ -1,26 +1,34 @@
-import { useState } from "react";
-import LoadEventList from "../components/load-event-list/LoadEventList";
+import { useEffect, useState } from "react";
+import LoadEventList from "../components/load-event-list";
 import CreateEventForm from "../forms/create-event-form";
 
 const LandingPage = () => {
     const [showCreateEventForm, setShowCreateEventForm] = useState(false);
     const [showLoadEventList, setShowLoadEventList] = useState(false);
 
+    useEffect(() => {
+        console.log('show load changed: ' + showLoadEventList);
+    }, [showLoadEventList])
+
+    useEffect(() => {
+        console.log('show create changed: ' + showCreateEventForm);
+    }, [showCreateEventForm])
+
     const getDisplay = () => {
-        if (showCreateEventForm) return <CreateEventForm />
-        if (showLoadEventList) return <LoadEventList />
+        if (showLoadEventList) return <LoadEventList setShowLoadEventList={setShowLoadEventList} />
+        else if (showCreateEventForm) return <CreateEventForm setShowCreateForm={setShowCreateEventForm} />
         else {
             return (
                 <div className="flex w-full justify-evenly">
                     <button
                         className="flex generic-button my-4"
-                        onClick={() => setShowCreateEventForm(!showCreateEventForm)}
+                        onClick={() => setShowCreateEventForm(true)}
                     >
                         Create Event
                     </button>
                     <button
                         className="flex generic-button my-4"
-                        onClick={() => setShowLoadEventList(!showLoadEventList)}
+                        onClick={() => setShowLoadEventList(true)}
                     >
                         Load Event
                     </button>
