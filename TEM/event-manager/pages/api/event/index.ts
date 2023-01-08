@@ -12,6 +12,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
         return res.status(200).json(result);
     }
+    if (req.method === 'GET') {
+        const result = await prisma.event.findMany();
+        return res.json(result);
+    }
 
     res.status(405).send('Unsupported request');
 }

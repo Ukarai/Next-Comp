@@ -57,7 +57,7 @@ const CreateEventForm: React.FC<ICreateEventForm> = ({ setShowCreateForm }) => {
                     required
                 />
             </label>
-            <div className="flex justify-end my-1 mb-1 mx-2">
+            <div className="flex justify-end my-1 mb-4 mx-2">
                 <button
                     type='button'
                     className="flex generic-button"

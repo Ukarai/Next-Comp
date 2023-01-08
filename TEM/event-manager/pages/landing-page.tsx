@@ -6,14 +6,6 @@ const LandingPage = () => {
     const [showCreateEventForm, setShowCreateEventForm] = useState(false);
     const [showLoadEventList, setShowLoadEventList] = useState(false);
 
-    useEffect(() => {
-        console.log('show load changed: ' + showLoadEventList);
-    }, [showLoadEventList])
-
-    useEffect(() => {
-        console.log('show create changed: ' + showCreateEventForm);
-    }, [showCreateEventForm])
-
     const getDisplay = () => {
         if (showLoadEventList) return <LoadEventList setShowLoadEventList={setShowLoadEventList} />
         else if (showCreateEventForm) return <CreateEventForm setShowCreateForm={setShowCreateEventForm} />

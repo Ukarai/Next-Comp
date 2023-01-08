@@ -4,7 +4,7 @@ type IEventListButtons = {
 
 const EventListButtons: React.FC<IEventListButtons> = ({setShowLoadEventList}) => {
     return (
-        <div className='flex flex-row my-1'>
+        <div className='flex flex-row mt-3 mb-4'>
             <button 
                 className='generic-button mx-2'
                 onClick={() => setShowLoadEventList(false)}

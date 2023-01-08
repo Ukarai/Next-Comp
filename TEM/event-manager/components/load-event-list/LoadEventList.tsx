@@ -1,6 +1,5 @@
 import EventListButtons from "./EventListButtons";
 import EventList from "./EventList";
-import { useEffect } from "react";
 
 type ILoadEventList = {
     setShowLoadEventList: (show: boolean) => void
