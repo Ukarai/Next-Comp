@@ -1,8 +1,11 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-type IEventList = {}
+type IEventList = {
+    selectedEventId: number,
+    setSelectedEventId: (id: number) => void
+}
 
-const EventList: React.FC<IEventList> = () => {
+const EventList: React.FC<IEventList> = ({ selectedEventId, setSelectedEventId }) => {
     const [eventsList, setEventsList] = useState<any>([]);
 
     useEffect(() => {
@@ -26,7 +29,17 @@ const EventList: React.FC<IEventList> = () => {
         <ul className="flex flex-col w-full items-center">
             {
                 eventsList.map((e: any, i: number) =>
-                    <li className="flex justify-center mx-auto my-1 font-semibold hover:bg-slate-300 bg-slate-50 rounded-lg px-16 min-w-[20vw]" key={i}>
+                    <li
+                        className={
+                            `${selectedEventId > e.id ? 'bg-yellow-500' : 'bg-slate-50'}
+                            flex justify-center mx-auto my-1 font-semibold hover:bg-slate-300 rounded-lg px-16 min-w-[20vw]`}
+                        key={i}
+                        onClick={() => {
+                            setSelectedEventId(e.id); 
+                            console.log('Eventid: ', e.id);
+                            console.log('selectedEventId: ', selectedEventId);
+                        }}
+                    >
                         {e.name}
                     </li>
                 )

@@ -32,7 +32,7 @@ const CreateEventForm: React.FC<ICreateEventForm> = ({ setShowCreateForm }) => {
     }
 
     return (
-        <form onSubmit={submitForm} className='flex flex-col flex-wrap'>
+        <form onSubmit={submitForm} className='flex flex-col w-full items-center flex-wrap'>
             <label className='flex my-1 mx-2 mt-2 text-white'>
                 Name:
                 <input

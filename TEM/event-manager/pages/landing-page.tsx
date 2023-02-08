@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoadEventList from "../components/load-event-list";
 import CreateEventForm from "../forms/create-event-form";
 
@@ -35,13 +35,12 @@ const LandingPage = () => {
 
             </header>
             <main>
-                <div className="m-auto mt-4 rounded-xl bg-blue-800 sm:w-1/3 flex flex-row justify-center flex-wrap p-2">
+                <div className="m-auto mt-4 rounded-xl bg-gray-800 sm:w-1/3 flex flex-row justify-center flex-wrap p-2">
                     <p className="font-bold text-xl underline text-white flex flex-grow-0 w-max">Trampoline Event Manager</p>
                     {
                         getDisplay()
                     }
                 </div>
-
             </main>
         </>
     )
